@@ -1,0 +1,25 @@
+{
+  "name": "X Shield",
+  "description": "Blocks X pages that appear to contain porn or sensitive media.",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "X Shield"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://x.com/*",
+        "*://*.x.com/*",
+        "*://twitter.com/*",
+        "*://*.twitter.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
